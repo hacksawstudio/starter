@@ -1,0 +1,81 @@
+/******************************************************************
+Site Name:
+Author: DMSQD
+
+Stylesheet: Grid Stylesheet
+
+I've seperated the grid so you can swap it out easily. It's
+called at the top the style.scss stylesheet.
+
+There are a ton of grid solutions out there. You should definitely
+experiment with your own. Here are some recommendations:
+
+http://gridsetapp.com - Love this site. Responsive Grids made easy.
+http://susy.oddbird.net/ - Grids using Compass. Very elegant.
+http://gridpak.com/ - Create your own responsive grid.
+
+The grid below is a combination of the 1140 grid and Twitter Boostrap.
+I liked 1140 but Boostrap's grid was way more detailed so I merged them
+together, let's see how this works out. If you want to use 1140, the original
+values are commented out on each line.
+
+--
+MIXINS
+I've also included grid mixins to use anywhere in _mixins.scss
+
+******************************************************************/
+
+$grid-gutter: 2.762430939%;
+$grid-1: 5.801104972%;
+$grid-2: 14.364640883%;
+$grid-3: 22.928176794%;
+$grid-4: 31.491712705%;
+$grid-5: 40.055248616%;
+$grid-6: 48.618784527%;
+$grid-7: 57.182320438000005%;
+$grid-8: 65.74585634900001%;
+$grid-9: 74.30939226%;
+$grid-10: 82.87292817100001%;
+$grid-11: 91.436464082%;
+$grid-12: 99.999999993%;
+
+.onecol    { width: $grid-1 }
+.twocol    { width: $grid-2 }
+.threecol  { width: $grid-3 }
+.fourcol   { width: $grid-4 }
+.fivecol   { width: $grid-5 }
+.sixcol    { width: $grid-6 }
+.sevencol  { width: $grid-7 }
+.eightcol  { width: $grid-8 }
+.ninecol   { width: $grid-9 }
+.tencol    { width: $grid-10 }
+.elevencol { width: $grid-11 }
+.twelvecol { width: $grid-12 }
+
+// layout & column defaults
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+  position: relative;
+  float: left;
+  margin-left: $grid-gutter;
+}
+
+.span-one    { margin-left: $grid-1  + $grid-gutter; }
+.span-two    { margin-left: $grid-2  + $grid-gutter; }
+.span-three  { margin-left: $grid-3  + $grid-gutter; }
+.span-four   { margin-left: $grid-4  + $grid-gutter; }
+.span-five   { margin-left: $grid-5  + $grid-gutter; }
+.span-six    { margin-left: $grid-6  + $grid-gutter; }
+.span-seven  { margin-left: $grid-7  + $grid-gutter; }
+.span-eight  { margin-left: $grid-8  + $grid-gutter; }
+.span-nine   { margin-left: $grid-9  + $grid-gutter; }
+.span-ten    { margin-left: $grid-10 + $grid-gutter; }
+.span-eleven { margin-left: $grid-11 + $grid-gutter; }
+.span-twelve { margin-left: $grid-12 + $grid-gutter; }
+
+.first {
+  margin-left: 0;
+}
+
+.last {
+  float: right;
+}

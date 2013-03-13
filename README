@@ -1,0 +1,11 @@
+/******************************************************************
+Starter by DMSQD
+
+A good starting point for HTML projects, developed from Bones-HTML.
+
+Fully responsive.
+
+
+I strongly suggest using Sass, especially in the responsive version as the legacy IE stylesheet is compiled automatically without the media queries. If you don't want to, strip the IE stylesheet include out yourself and use a media query polyfill.
+
+******************************************************************/
