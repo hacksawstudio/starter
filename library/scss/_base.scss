@@ -22,6 +22,8 @@ body {
 	color: $black;
 }
 
+
+
 input, textarea {
 	padding: 8px 5px;
 	border: 1px solid $black;
@@ -32,8 +34,8 @@ LAYOUT & GRID STYLES
 *********************/
 
 .wrap {
-	width: 96%;
 	margin: 0 auto;
+	max-width: 1140px;
 }
 
 .left { float: left; }
@@ -135,78 +137,112 @@ and more scalable.
 */
 
 .nav {
-	border: 1px solid #ccc;
-	border-bottom: 0;
+	background: #eee;
 
 	ul {
 		margin: 0;
 	}
 
 	li {
+		float: left;
+		position: relative;
 
 		a {
 			display: block;
 			text-decoration: none;
 			padding: 10px 10px;
-			border-bottom: 1px solid #ccc;
+			border-bottom: 0;
 
 			/*
-			remember this is for mobile ONLY, so there's no need
-			to even declare hover styles here, you can do it in
-			the style.scss file where it's relevant. We want to
-			keep this file as small as possible!
+			you can use hover styles here even though this size
+			has the possibility of being a mobile device.
 			*/
 			&:hover, &:focus {
+				background-color: #dedede;
 
 			}
 		}
 
 		&:first-child {}
-
 		&:last-child {}
 
 		/*
-		so you really have to rethink your dropdowns for mobile.
-		you don't want to have it expand too much because the
-		screen is so small. How you manage your menu should
-		depend on the project. Here's some great info on it:
-		http://www.alistapart.com/articles/organizing-mobile/
+		plan your menus and drop-downs wisely.
 		*/
 		ul.sub-menu,
 		ul.children {
+			width: 200px;
+			border: 1px solid #ccc;
+			border-top: 0;
+			position: absolute;
+			display: none;
+			z-index: 8999;
 
 			li {
 
 				a {
-					padding-left: 30px;
+					padding-left: 10px;
+					border-right: 0;
+					display: block;
+					border-bottom: 1px solid #ccc;
+					background: #ccc;
+					width: 180px;
 
 					&:hover,
 					&:focus {}
 
 					&:link {}
-
 				}
 
 				&:first-child {}
 
-				&:last-child {}
+				&:last-child {
 
+					a {
+						border-bottom: 0;
+					}
+				}
+
+				/*
+				Third plus level menus - go as deep as you like,
+				I got your back bro
+				*/
+				ul {
+					display: none;
+					margin-left: 100%;
+					top: 5px;
+				}
+				&:hover > ul {
+					left: auto;
+					display: block;
+				}
 			}
 
+			/* highlight sub-menu current page */
+			li.current-menu-item,
+			li.current_page_item,
+			li.current-page-ancestor {
+				a {}
+			}
 		}
 
-	} /* end .menu li */
+		/* showing sub-menus */
+		&:hover > ul {
+			top: auto;
+			display: block;
+		}
+
+	} /* end .menu ul li */
 
 	/* highlight current page */
 	li.current-menu-item,
 	li.current_page_item,
 	li.current-page-ancestor {
-
-		& > a {}
-
+		a {}
 	}  /* end current highlighters */
 
 } /* end .nav */
+
 
 	.main-nav {
 		//override the .nav styling here
@@ -283,15 +319,22 @@ POSTS & CONTENT STYLES
 				height: auto;
 			}
 
-			/*
-			image alignment on a screen this size may be
-			a bit difficult. It's set to start aligning
-			and floating images at the next breakpoint,
-			but it's up to you. Feel free to change it up.
-			*/
-			.alignleft, img.alignleft {}
-			.alignright, img.alignright {}
-			.aligncenter, img.aligncenter {}
+			.alignleft, img.alignleft {
+				margin-right: 1.5em;
+				display: inline;
+				float: left;
+			}
+			.alignright, img.alignright {
+				margin-left: 1.5em;
+				display: inline;
+				float: right;
+			}
+			.aligncenter, img.aligncenter {
+				margin-right: auto;
+				margin-left: auto;
+				display: block;
+				clear: both;
+			}
 
 			video, object {
 				max-width: 100%;
@@ -310,27 +353,34 @@ POSTS & CONTENT STYLES
 SIDEBARS & ASIDES
 *********************/
 
-.sidebar {}
+.sidebar {
+	margin-top: 2.2em;
+}
 
-	.widgettitle {}
+
+	.widgettitle {
+		border-bottom: 2px solid #444;
+		margin-bottom: 0.75em;
+	}
 
 	.widget {
+		padding: 0 10px;
+		margin: 2.2em 0;
 
 		ul {
-
 			li {
+				margin-bottom: 0.75em;
 
 				&:first-child {}
-
 				&:last-child {}
-
 				a {}
-
 				/* deep nesting */
-				ul {}
 
+				ul {
+					margin-top: 0.75em;
+					padding-left: 1em;
+				}
 			}
-
 		}
 
 	}
