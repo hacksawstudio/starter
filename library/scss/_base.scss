@@ -35,7 +35,7 @@ LAYOUT & GRID STYLES
 
 .wrap {
 	margin: 0 auto;
-	max-width: 1140px;
+	width: 960px;
 }
 
 .left { float: left; }
@@ -171,7 +171,7 @@ and more scalable.
 		*/
 		ul.sub-menu,
 		ul.children {
-			width: 200px;
+			// width: 200px;
 			border: 1px solid #ccc;
 			border-top: 0;
 			position: absolute;
